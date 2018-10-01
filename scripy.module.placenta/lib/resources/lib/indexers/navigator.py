@@ -402,9 +402,8 @@ class navigator:
     def clearCacheSearch(self):
         control.idle()
         if control.yesnoDialog(control.lang(32056).encode('utf-8'), '', ''):
-            addon_id = control.addonInfo('id')
-            control.setSetting(addon_id + 'tvsearch', '')
-            control.setSetting(addon_id + 'moviesearch', '')
+            control.setSetting('tvsearch', '')
+            control.setSetting('moviesearch', '')
 
     def clearCacheAll(self):
         control.idle()
