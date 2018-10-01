@@ -168,8 +168,7 @@ class tvshows:
             control.idle()
 
             url = self.search_link + urllib.quote_plus(name)
-            url = '%s?action=tvshowPage&url=%s' % (sys.argv[0], urllib.quote_plus(url))
-            control.execute('Container.Update(%s)' % url)
+            self.get(url)
 
     def person(self):
         try:
