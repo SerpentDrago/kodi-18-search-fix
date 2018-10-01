@@ -176,15 +176,14 @@ class movies:
 
             t = control.lang(32010).encode('utf-8')
             k = control.keyboard('', t) ; k.doModal()
-            q = k.getText() if k.isConfirmed() else None
+            q = k.getText().strip() if k.isConfirmed() else None
             if not q: return
             
             search_history = control.setting('moviesearch')
-            control.setSetting('moviesearch', q.strip() + '\n' + search_history)  
+            if q not in search_history:
+                control.setSetting('moviesearch', q + '\n' + search_history)  
             
             url = self.search_link + urllib.quote_plus(q)
-            url = '%s?action=moviePage&url=%s' % (sys.argv[0], urllib.quote_plus(url))
-            #control.execute('Container.Update(%s)' % url)
             self.get(url)
 
     def search_term(self, name):
