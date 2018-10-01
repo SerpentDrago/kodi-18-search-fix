@@ -162,7 +162,8 @@ class tvshows:
             
             url = self.search_link + urllib.quote_plus(q)
             url = '%s?action=tvshowPage&url=%s' % (sys.argv[0], urllib.quote_plus(url))
-            control.execute('Container.Update(%s)' % url)
+            #control.execute('Container.Update(%s)' % url)
+            self.get(url)
 
     def search_term(self, name):
             control.idle()
