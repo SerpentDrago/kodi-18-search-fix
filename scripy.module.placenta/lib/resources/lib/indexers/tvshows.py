@@ -181,9 +181,7 @@ class tvshows:
             if (q == None or q == ''): return
 
             url = self.persons_link + urllib.quote_plus(q)
-            url = '%s?action=tvPersons&url=%s' % (sys.argv[0], urllib.quote_plus(url))
-
-            control.execute('Container.Update(%s)' % url)
+            self.persons(url)
         except:
             return
 
