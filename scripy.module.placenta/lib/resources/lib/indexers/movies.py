@@ -163,8 +163,7 @@ class movies:
     def search(self):
         navigator.navigator().addDirectoryItem(32603, 'movieSearchnew', 'search.png', 'DefaultMovies.png')
         
-        setting_name = control.addonInfo('id') + 'moviesearch'
-        search_history = control.setting(setting_name)
+        search_history = control.setting('moviesearch')
         if search_history:
             for term in search_history.split('\n'):
                 if term:
@@ -180,9 +179,8 @@ class movies:
             q = k.getText() if k.isConfirmed() else None
             if not q: return
             
-            setting_name = control.addonInfo('id') + 'moviesearch'
-            search_history = control.setting(setting_name)
-            control.setSetting(setting_name, q.strip() + '\n' + search_history)  
+            search_history = control.setting('moviesearch')
+            control.setSetting('moviesearch', q.strip() + '\n' + search_history)  
             
             url = self.search_link + urllib.quote_plus(q)
             url = '%s?action=moviePage&url=%s' % (sys.argv[0], urllib.quote_plus(url))
