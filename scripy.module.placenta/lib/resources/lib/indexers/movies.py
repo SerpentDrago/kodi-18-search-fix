@@ -180,7 +180,7 @@ class movies:
             if not q: return
             
             search_history = control.setting('moviesearch')
-            if q not in search_history:
+            if q not in search_history.split('\n'):
                 control.setSetting('moviesearch', q + '\n' + search_history)  
             
             url = self.search_link + urllib.quote_plus(q)
