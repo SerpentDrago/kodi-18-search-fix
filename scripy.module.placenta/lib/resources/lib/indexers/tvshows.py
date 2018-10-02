@@ -159,7 +159,7 @@ class tvshows:
             
             search_history = control.setting('tvsearch')
             if q not in search_history.split('\n'):
-                control.setSetting(setting_name, q + '\n' + search_history)            
+                control.setSetting('tvsearch', q + '\n' + search_history)            
             
             url = self.search_link + urllib.quote_plus(q)
             self.get(url)
